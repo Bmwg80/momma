@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="nl">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+    <meta name="theme-color" content="#120b14">
+    <title>Voor de liefste mama 💕</title>
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;600&family=Dancing+Script:wght@600;700&family=Fredoka:wght@400;600&family=Press+Start+2P&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="glow g1"></div><div class="glow g2"></div>
+    <div id="hearts" class="hearts" aria-hidden="true"></div>
+    <canvas id="confetti" aria-hidden="true"></canvas>
+
+    <main class="app">
+        <section class="card pin-card" id="pinCard">
+            <div class="lock">🔒</div>
+            <h1 class="title">Voor de liefste mama 💕</h1>
+            <p class="hint">Voer jullie geheime code in</p>
+            <div class="pin-display" id="pinDisplay" aria-live="polite">____</div>
+            <div class="pin-error" id="pinError" role="alert"></div>
+            <div class="keypad" id="keypad">
+                <button class="key">1</button><button class="key">2</button><button class="key">3</button>
+                <button class="key">4</button><button class="key">5</button><button class="key">6</button>
+                <button class="key">7</button><button class="key">8</button><button class="key">9</button>
+                <button class="key action" id="clear">C</button>
+                <button class="key">0</button>
+                <button class="key action" id="ok">OK</button>
+            </div>
+        </section>
+
+        <section class="card main-card hidden" id="mainCard">
+            <h2 class="main-title">Happy Birthday! 🎉</h2>
+            <p class="subtitle">Klik hieronder om je verrassing te starten:</p>
+            <div class="gifts">
+                <button class="gift primary-start" data-view="musicView">🎵 1. Start Muziek &amp; Ervaring</button>
+                <button class="gift hidden" id="photosMenuBtn" data-view="photosView">📸 2. Herinneringen</button>
+                <button class="gift hidden" id="textMenuBtn" data-view="textView">🎁 3. Lieve Brief</button>
+            </div>
+        </section>
+
+        <div id="viewer" class="viewer hidden" aria-hidden="true">
+            <div class="viewer-topbar">
+                <button id="backToMenu" class="hidden">← Menu</button>
+                <div class="top-actions hidden" id="topActions">
+                    <button class="top-action" data-target="musicView">🎵<span> Muziek</span></button>
+                    <button class="top-action" data-target="photosView">📸<span> Foto's</span></button>
+                    <button class="top-action" data-target="textView">✉️<span> Brief</span></button>
+                </div>
+                <button class="viewer-close hidden" id="viewerClose" aria-label="Sluiten">✖</button>
+            </div>
+
+            <div class="viewer-inner" id="viewerInner">
+                <section id="musicView" class="view-section music-view">
+                    <h3>Speciaal Liedje</h3>
+                    <div class="music-container">
+                        <p class="music-note">dit liedje doet me altijd denken aan jou</p>
+                        <div class="embed large">
+                            <div class="video-wrap" id="videoWrap">
+                                <video id="musicPlayer" playsinline>
+                                    <source src="Lil Uzi Vert - Dark Queen [Official Visualizer].mp4" type="video/mp4">
+                                </video>
+                                <div class="overlay-controls hidden" id="overlayControls">
+                                    <button id="skipBack" class="ctrl">⏮ 10s</button>
+                                    <button id="playPause" class="ctrl">▶</button>
+                                    <button id="skipForward" class="ctrl">10s ⏭</button>
+                                    <input type="range" id="seekBar" min="0" max="100" value="0">
+                                    <div class="timeInfo"><span id="curTime">0:00</span> / <span id="durTime">0:00</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div id="lyricsWrapper" class="lyrics-card">
+                            <h4>Waarom dit liedje zo speciaal is ✨</h4>
+                            <p>In <strong>"Dark Queen"</strong> bedankt Lil Uzi Vert zijn moeder voor alles wat ze voor hem heeft gedaan. Het nummer gaat over de onvoorwaardelijke liefde van een moeder, hoe ze er altijd voor je is in moeilijke tijden en hoeveel offers ze brengt om haar kind te beschermen en te zien opgroeien.</p>
+                            <p class="quote"><em>"Dear mama, I don't want you to cry, your youngest son got you..."</em></p>
+                        </div>
+                        <button class="next-step-btn" id="toPhotosBtn">Bekijk onze herinneringen 📸 ➔</button>
+                    </div>
+                </section>
+
+                <section id="photosView" class="view-section photos-view">
+                    <h3>Herinneringen</h3>
+                    <div class="photo-grid full">
+                        <div class="photo"><img loading="lazy" src="mama.jpeg" alt="Foto 1"></div>
+                        <div class="photo"><img loading="lazy" src="daw.jpeg" alt="Foto 2"></div>
+                        <div class="photo"><img loading="lazy" src="WhatsApp Image 2026-09-14 at 9.31.52 PM.jpeg" alt="Foto 3"></div>
+                        <div class="photo"><img loading="lazy" src="WhatsApp Image 2026-09-14 at 9.31.53 PM.jpeg" alt="Foto 4"></div>
+                        <div class="photo"><img loading="lazy" src="mageheah.jpeg" alt="Foto 5"></div>
+                        <div class="photo"><img loading="lazy" src="dwawdadwa.jpeg" alt="Foto 6"></div>
+                        <div class="photo"><img loading="lazy" src="dadwadwa.jpeg" alt="Foto 7"></div>
+                        <div class="photo"><img loading="lazy" src="fwadwadwa.jpeg" alt="Foto 8"></div>
+                        <div class="photo"><img loading="lazy" src="grdgrdgddgd.jpeg" alt="Foto 9"></div>
+                        <div class="photo"><img loading="lazy" src="grdgdgrdr.jpeg" alt="Foto 10"></div>
+                        <div class="photo"><img loading="lazy" src="grdgrdgdrdgdr.jpeg" alt="Foto 11"></div>
+                        <div class="photo"><img loading="lazy" src="dawadawa.jpeg" alt="Foto 12"></div>
+                        <div class="photo"><img loading="lazy" src="gyjgjgyjgy.jpeg" alt="Foto 13"></div>
+                        <div class="photo"><img loading="lazy" src="esd.jpeg" alt="Foto 14"></div>
+                    </div>
+                    <button class="next-step-btn" id="toTextBtn">Lees mijn brief voor jou ✉️ ➔</button>
+                </section>
+
+                <section id="textView" class="view-section text-view">
+                    <h3>Lieve Brief</h3>
+                    <article class="text-scroll">
+                        <p class="greet">Lieve mams,</p>
+                        <p>Gefeliciteerd met je verjaardag! Ik hoop uit de bodem van mijn hart dat ik deze dag speciaal voor jou heb kunnen maken, want als er iemand is die het verdient om in het zonnetje gezet te worden, dan ben jij het wel. Ik hou ontzettend veel van je, mama.</p>
+                        <p>Ik wil vandaag ook even heel eerlijk en vanuit mijn gevoel met je praten, want je bent mijn rots in de branding. Je weet hoe ik als klein jongetje al geobsedeerd was door auto's. Ik speelde uren met kleine autootjes en bouwde de gekste parcoursen. Eén van mijn mooiste herinneringen ooit is bij oma in Hoogvliet, achter de leuning van de bank. Dat stukje hout leek net een onverharde weg en ik bleef maar testen hoe de vering van die autootjes werkte. Die passie is nooit weggegaan. Van alle videogames die er bestaan tot al vier jaar lang naar 100% Auto Live gaan: die fascinatie voor auto's én scooters zit diep in mij. Al sinds mijn elfde droom ik er onvoorstelbaar van om ooit mijn rijbewijs te halen en zelf achter het stuur te zitten.</p>
+                        <p>Ik weet dat je denkt: je had je beter kunnen voorbereiden, sparen en aan je toekomst denken. Daar heb je voor 100% gelijk in, mama. Ik zat te diep in mijn eigen wereldje en ik heb dingen gedaan waar ik achteraf ontzettend veel spijt van heb. Dingen die ik mezelf nooit zal vergeven en waar geen enkele goedpraterij voor bestaat. Mijn allergrootste excuses daarvoor. Het doet me pijn dat je dat hebt moeten meemaken, want dat verdiende je absoluut niet. Ik weet soms niet eens waarom ik die keuzes maakte, maar ik heb mijn ogen geopend. Ik heb gezien met wat voor mensen ik omging, heb van veel mensen afstand genomen en ben me echt op mezelf gaan focussen.</p>
+                        <p>Mama, je bent echt de allerbeste moeder die ik me ooit had kunnen wensen. Als ik soms andere moeders zie, denk ik echt: <em>wtf, die van mij is zo chill</em>. Ik meen het uit de grond van mijn hart als ik zeg dat jij mijn favoriete persoon op de hele wereld bent. Het deed me ontzettend veel pijn toen ik me realiseerde dat ik in het verleden soms meer moeite deed voor anderen dan voor mijn eigen moeder. Daarom heb ik dit cadeau al ruim van tevoren gepland (en stiekem die bril overgeslagen) om dit allemaal voor jou op te bouwen. Ik wilde jou uit de grond van mijn hart de leukste verjaardag ooit geven, los van alles.</p>
+                        <p>Omdat we zo'n hechte band hebben, wil ik je toch heel eerlijk vragen om samen met mij mee te denken. Iedereen om me heen begint hun rijbewijs te halen of zoekt al naar auto's. Dat gevoel van achterlopen en die jaloezie knaagt echt aan me en geeft me dagelijks stress. Ik wil zo ontzettend graag op mijn 17e mijn rijbewijs op zak hebben. Zou jij mij alsjeblieft willen helpen om die droom waar te maken? Ik vraag absoluut niet om het voor mij te betalen, maar zou je het voor mij willen voorschieten? En please denk niet dat ik al deze moeite heb gedaan om voor jou toch die rijbewijs eruit te trekken of zoiets. Ik wil jou echt gewoon voortaan toch een leuk en goed verjaardagscadeau kunnen geven, daarom heb ik dit gedaan voor je en omdat ik echt nog altijd van je hou. Ik beloof je dat ik alles in nette, respectvolle termijnen aan je terugbetaal zodat het helemaal goed komt.</p>
+                        <p>Vergeef me alsjeblieft voor mijn fouten uit het verleden en weet dat ik elke dag mijn best doe om een betere zoon voor je te zijn. Bedankt voor al je engelengeduld, je liefde en alles wat je dag in, dag uit voor mij doet. Ik kan je niet vaak genoeg zeggen hoeveel ik van je hou.</p>
+                        <p>Geniet van al je cadeautjes, mams. Maak er weer een prachtig en mooi jaar van!</p>
+                        <p class="sign">Ik hou voor altijd van je ❤️</p>
+                    </article>
+                    <button class="next-step-btn finish-btn" id="finishExpBtn">Afronden &amp; Terug naar menu 💕</button>
+                </section>
+            </div>
+        </div>
+    </main>
+
+    <div id="lightbox" class="lightbox hidden" aria-hidden="true">
+        <button class="lightbox-close" id="lbClose" aria-label="Sluiten">✖</button>
+        <button class="lightbox-prev" id="lbPrev" aria-label="Vorige">◀</button>
+        <div class="lightbox-content"><img id="lbImg" src="" alt="Groot beeld"></div>
+        <button class="lightbox-next" id="lbNext" aria-label="Volgende">▶</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
